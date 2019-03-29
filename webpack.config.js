@@ -3,12 +3,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: './src/app.jsx',
+    entry: './src/index.js',
     devtool: 'source-map',
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            title: 'Output Management'
+            title: 'Taylor Sheckells'
         })
     ],
     output: {
@@ -18,7 +18,7 @@ module.exports = {
     module: {
         rules: [
             { test: /\.(t|j)sx?$/, use: { loader: 'awesome-typescript-loader' } },
-            { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
+            { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
             {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
