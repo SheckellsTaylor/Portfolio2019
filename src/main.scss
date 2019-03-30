@@ -1,7 +1,31 @@
 @mixin font {
-    font-family: interstate, sans-serif;
+    font-family: hypatia-sans-pro, sans-serif;
+    font-weight: 400;
     font-style: normal;
-    font-weight: 100;
+}
+
+@mixin JosefinReg {
+    font-family: josefin-slab, serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@mixin JosefinBold {
+    font-family: josefin-slab, serif;
+    font-weight: 700;
+    font-style: normal; 
+}
+
+@mixin JosefinItalic {
+    font-family: josefin-slab, serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+@mixin JosefinBoItal {
+    font-family: josefin-slab, serif;
+    font-weight: 700;
+    font-style: italic;
 }
 
 @mixin flexbox {
@@ -161,6 +185,16 @@
     align-content: $value;
   }
 
+@mixin contentPadding {
+    padding-left:55px;
+    padding-right:55px;
+}
+
+@mixin margaut {
+    margin-left:auto;
+    margin-right:auto;
+}
+
   /**********************************
 
 Use: Reset Styles for all browsers
@@ -225,18 +259,22 @@ select { padding: 0; }
 
 /*End Reset */
 
+body {
+    @include flexbox;
+}
+
 .hello {
     color:red;
-    background:url('./images/runnign.png');
+
 @include font;
 }
 
 .navigation {
     @include flexbox;
     @include flex-direction(column);
-    width:13vw;
-    height:100vh;
-    background-color:#000;
+    width:23%;
+    height:100%;
+    background-color:rgb(26,26,26);
     color:#fff;
     & ul {
         height:100%;
@@ -248,4 +286,35 @@ select { padding: 0; }
             font-size:1.2em;
         }
     }
+}
+
+.contentContainer {
+    overflow:scroll;
+    overflow-x:hidden;
+    width:100%;
+    height:100vh;
+    @include JosefinReg;
+    @include contentPadding;
+    @include margaut;
+    & .landing {
+        height:100%;
+    }
+}
+
+.landing {
+    position:relative;
+    width:auto;
+    align-content: center;
+    margin-left:auto;
+    margin-right:auto;
+    justify-content: center;
+    text-align: center;
+    @include font;
+}
+
+.about {
+    justify-content: center;
+    text-align: center;
+    @include font;
+    font-size:1.5em;
 }

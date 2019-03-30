@@ -2,63 +2,28 @@ import _ from 'lodash';
 import printMe from './print.js';
 import './main.scss';
 import Runnign from './images/runnign.png';
+import Logo from './images/Logo4.png';
+import Background from './images/background';
+import Kayak from './images/kayak.png';
+import Running from './images/running.png';
 
 let elementList = ['nav', 'header', 'main', 'div', 'p', 'footer', 'aside', 'section', 'article'];
 
-function navit() {
-let header = document.createElement(elementList[2]);
-header.innerHTML = _-join(['Welcome to Taylor Sheckells Website'], ' ');
-return header;
-}
-
-function component() {
-
-    let element = document.createElement('div');
-    let elementt = document.createElement('div');
-    var btn = document.createElement('button');
-// Lodash, currently included via a script, is required for this line to work
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-    element.classList.add('hello');
-
-    elementt.innerHTML = _.join(['Hellooloooooooooooooo first', 'webpack'], ' ');
-    elementt.classList.add('hello');
-
-    var myIcon = new Image();
-   myIcon.src = Runnign;
-
-   element.appendChild(myIcon);
-    return elementt;
-  }
-
-
-  function componen() {
-
-  var ul = document.createElement('ul');
-
-  document.getElementById('myItemList').appendChild(ul);
-
-  elementList.forEach(function (listItem) {
-      var li = document.createElement('li');
-      ul.appendChild(li);
-li.innerHTML += listItem;
-  });
-
-}
-
-
   function makeNavList() {
     // Establish the array which acts as a data source for the list
-    var navItem =  ['About Taylor', 
-    'General', 
-    'Resume',
-     'Past Portfolios',
-      'Projects',
-       'Projects',
-        'AT&T',
-         'Savage & Godfrey',
-          'SmarterLifeStyle Network',
-           'GenOne Media Group',
-            'Contact'];
+    var navItem =   [
+                    'About Taylor', 
+                    'General', 
+                    'Resume',
+                    'Past Portfolios',
+                    'Projects',
+                    'Projects',
+                    'AT&T',
+                    'Savage & Godfrey',
+                    'SmarterLifeStyle Network',
+                    'GenOne Media Group',
+                    'Contact'
+                    ];
 
     // Make a container element for the list using nav
     var navContainer = document.createElement(elementList[0]);
@@ -76,6 +41,7 @@ li.innerHTML += listItem;
     var countNavItems = navItem.length;
 
     for (var i = 0; i < countNavItems; ++i) {
+
         // create an item for each one
         var listItem = document.createElement('li');
 
@@ -90,8 +56,68 @@ li.innerHTML += listItem;
     }
 }
 
+function Landing() {
+
+    let div = document.createElement(elementList[3]);
+ 
+// Lodash, currently included via a script, is required for this line to work
+    div.innerHTML = 'Welcome To Taylor Sheckells Portfolio';
+    div.classList.add('landing');
+    var logo = new Image();
+    logo.src = Logo;
+    div.appendChild(logo);
+    logo.classList.add('logo');
+return div;
+  }
+
+  function AboutTaylor() {
+     let divAbout = document.createElement(elementList[3]);
+
+     divAbout.innerHTML = 'I am a local to North Carolina currently residing in the town of Wake Forest. During the summer I enjoy the outdoors with kayaking, running and doing any activity in the sun with my kids. I have a general love for building structures with any material I have, lego’s, wood paper or anything else that I have available. I enjoy traveling and learning about the history of the towns I visit and exploring local attractions. ';
+     divAbout.classList.add('about');
+     var shareImage = new Image();
+     var shareImageTwo = new Image();
+     shareImage.src = Kayak;
+     shareImageTwo.src = Running;
+
+     divAbout.appendChild(shareImage);
+     divAbout.appendChild(shareImageTwo);
+     
+     return divAbout;
+}
+
+  function General() {
+
+    let divGeneral = document.createElement(elementList[3]);
+ 
+    divGeneral.innerHTML = 'Welcome To Taylor Sheckells Portfolio';
+    divGeneral.classList.add('landing');
+    var logo = new Image();
+    logo.src = Logo;
+    divGeneral.appendChild(logo);
+    return divGeneral;
+  }
+
+  function content() {
+
+    var siteContentContainer = document.createElement(elementList[2]);
+
+    document.getElementsByTagName('body')[0].appendChild(siteContentContainer);
+
+    siteContentContainer.classList.add('contentContainer');
+
+    var landing =  document.body.appendChild(Landing());
+
+    var about =  document.body.appendChild(AboutTaylor());
+
+    siteContentContainer.appendChild(landing);
+    siteContentContainer.appendChild(about);
+  
+
+  }
+
 // Usage
 makeNavList();
+content();
 
-  // document.body.appendChild(component());
-  // document.body.appendChild(componen());
+
